@@ -27,7 +27,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5174", "https://pony-express-jacobdietz-production.up.railway.app"],
+    allow_origins=["http://localhost:5174","http://localhost:5173", "https://pony-express-jacobdietz-production.up.railway.app"],
     allow_methods=["*"],
     allow_headers=["*"],
     allow_credentials=True,
