@@ -11,7 +11,7 @@ export default function ChatNav({ onOpenCreateChat }) {
 
 
     return (
-        <section className="text-center bg-white/30 rounded-xl drop-shadow-2xl border border-zinc-200 p-4 overflow-y-auto">
+        <section id="chatComponent" className="text-center bg-white/30 rounded-xl drop-shadow-2xl border border-zinc-200 p-4 overflow-y-auto">
 
             <h1 className="mt-2 font-shadow-lg text-c-darker-blue mb-2 font-sans font-semibold text-2xl opacity-100 box-shadow-2xl">Pony Express</h1>
 
@@ -31,11 +31,11 @@ export default function ChatNav({ onOpenCreateChat }) {
 
         </section>
     );
-}
+}   
 
 function ChatList({ allChats }) {
     return (
-        <ul className="overflow-scroll overflow-y-auto no-scrollbar h-2/4 my-5 font-ubuntu text-white tracking-wide mt5 font-semibold text-2xl">
+        <ul id="chatlist" className="flex flex-col gap-y-4 overflow-y-scroll no-scrollbar  font-ubuntu text-white tracking-wide font-semibold text-2xl">
             {allChats.map((chat) => (
                 <ChatItem name={chat.name} id={chat.id} key={chat.id}>{chat.name}</ChatItem>
             ))}
@@ -46,7 +46,7 @@ function ChatList({ allChats }) {
 function ChatItem({ name, id }) {
     const match = useMatch(`/chats/${id}`);
     const liClassName = match
-        ? "border-2 border-c-light-blue opacity-80 rounded-xl text-gray-1wx00 mt-2 font-bold mx-5"
+        ? "border-2 border-c-light-blue opacity-80 rounded-xl text-gray-100 font-bold"
         : "hover:border-2 hover:border-sage hover:rounded-xl opacity-80 text-zinc-900 mt-2 mx-5";
     return (
         <li className={liClassName}>

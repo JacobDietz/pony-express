@@ -11,7 +11,7 @@ export default function ChatNav({ onOpenCreateChat }) {
 
 
     return (
-        <section className="h-1/2 w-1/4 md:w-[280px] flex-col flex-shrink-0 md:h-full text-center bg-white/30 rounded-xl drop-shadow-2xl border border-zinc-200 p-4 overflow-y-auto">
+        <section id="completeNav" className="self-center h-1/2 w-1/4 md:w-[280px] flex-col flex-shrink-0 md:h-95/100 text-center bg-white/30 rounded-xl drop-shadow-2xl border border-zinc-200 p-4 overflow-y-auto">
 
             <h1 className="md:mt-2 font-shadow-lg text-c-darker-blue mb-2 font-sans font-semibold 
             md:text-2xl  box-shadow-2xl">Pony Express</h1>
