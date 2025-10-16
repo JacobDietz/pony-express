@@ -16,7 +16,7 @@ import { useContext, useState } from 'react';
 import { CreateChatPopUp } from "./chats";
 
 
-const headerClassName = "text-xl sm:text-9xl text-center font-extrabold text-white text-outline my-none mb-none font-doto"
+const headerClassName = "text-5xl md:text-9xl text-center font-extrabold text-white text-outline my-none mb-none font-doto"
 const queryClient = new QueryClient();
 
 /**
@@ -64,9 +64,9 @@ function Home() {
   }
   else {
     return (
-      <div className="h-screen flex flex-col">
+      <div className="h-screen w-full flex flex-col">
         <h1 className={headerClassName}>Pony Express</h1>
-        <div id="body" className="flex flex-1 overflow-hidden">
+        <div id="body" className="px:5 md:px-10 flex flex-1 overflow-hidden justify-evenly">
           <ChatNav onOpenCreateChat={click} />
           <MessagesContainer />
         </div>

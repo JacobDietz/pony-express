@@ -11,7 +11,7 @@ export default function ChatNav({ onOpenCreateChat }) {
 
 
     return (
-        <section className="w-full h-full text-center bg-white/30 rounded-xl drop-shadow-2xl border border-zinc-200 p-4 overflow-y-auto">
+        <section className="text-center bg-white/30 rounded-xl drop-shadow-2xl border border-zinc-200 p-4 overflow-y-auto">
 
             <h1 className="mt-2 font-shadow-lg text-c-darker-blue mb-2 font-sans font-semibold text-2xl opacity-100 box-shadow-2xl">Pony Express</h1>
 
@@ -57,7 +57,6 @@ function ChatItem({ name, id }) {
 
 function CreateChat({ onClick }) {
 
-
     return (
         <button
             className="bg-blue-400 shadow-md rounded-xl w-3/5 h-10 mb-3 text-white hover:bg-blue-200  "
@@ -67,49 +66,3 @@ function CreateChat({ onClick }) {
     )
 
 }
-
-function CreateChatPopUp({ onClose }) {
-    const [name, setName] = useState('');
-    const [showButton, setShowButton] = useState(false);
-
-    return (
-
-        <div className="fixed inset-0 bg-[rgba(0,0,0,0.4)] flex justify-center items-center">
-            {/* <div className="bg-[rgba(254,254,254,0.98)] w-1/3 h-1/3 border-3 border-red-100 rounded-xl"> */}
-            <div className="bg-[url(../src/assets/images/backdrop.jpg)] bg-cover bg-no-repeat bg-center w-1/3 h-1/3 border-none
-            border-red-100 rounded-xl">
-
-                <button
-                    className="hover:bg-[rgba(0,0,0,0.1)] bg-[rgba(227,171,174,0.4)]
-                    rounded-full text-white relative -top-3 -left-3 size-7"
-                    onClick={onClose}
-                >X</button>
-
-                <form
-                    id="createChatForm"
-                >
-                    <div className="flex flex-col items-center justify-center py-10">
-                        <p className="text-gray-400 text-7xl text-white font-doto font-bold"> Enter chat name</p>
-                            <input
-                                className="focus:border-red-300 w-1/2 h-1/5 border-2 border-red-200 rounded-lg shrink outline-none my-4 text-white "
-                                //value={password}
-                                type="text"
-                                onChange={(e) => {
-                                    setName(e.target.value);
-                                    setShowButton(true);
-                                }}
-                            />
-                        
-                        {showButton && <button 
-                        className="bg-gray-300 w-1/4 rounded-md hover:bg-gray-100"
-                        type={"submit"}
-                        >Create</button> }
-                        </div>
-                </form>
-            </div>
-        </div>
-
-    )
-}
-
-export { CreateChatPopUp }

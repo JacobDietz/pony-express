@@ -11,13 +11,13 @@ export default function ChatNav({ onOpenCreateChat }) {
 
 
     return (
-        <div className="w-[280px] flex-shrink-0 p-4">
-        <section className="w-full h-full text-center bg-white/30 rounded-xl drop-shadow-2xl border border-zinc-200 p-4 overflow-y-auto">
+        <section className="h-1/2 w-1/4 md:w-[280px] flex-col flex-shrink-0 md:h-full text-center bg-white/30 rounded-xl drop-shadow-2xl border border-zinc-200 p-4 overflow-y-auto">
 
-            <h1 className="mt-2 font-shadow-lg text-c-darker-blue mb-2 font-sans font-semibold text-2xl opacity-100 box-shadow-2xl">Pony Express</h1>
+            <h1 className="md:mt-2 font-shadow-lg text-c-darker-blue mb-2 font-sans font-semibold 
+            md:text-2xl  box-shadow-2xl">Pony Express</h1>
 
             <p className="bg-opacity-10 text-white text-shadow-xl font-doto tracking-wide
- font-stretch-ultra-condensed text-4xl">{username}</p>
+ font-stretch-ultra-condensed md:text-4xl">{username}</p>
             <p className="text-blue-900 hover:text-blue-300 text-xs mb-3"><a href="/settings">settings</a></p>
 
 
@@ -31,13 +31,14 @@ export default function ChatNav({ onOpenCreateChat }) {
 
 
         </section>
-        </div>
+        //</div>
     );
 }
 
 function ChatList({ allChats }) {
     return (
-        <ul className="overflow-scroll overflow-y-auto no-scrollbar h-2/4 my-5 font-ubuntu text-white tracking-wide mt5 font-semibold text-2xl">
+        <ul className="overflow-scroll overflow-y-auto no-scrollbar 
+      h-1/3 my-5 tracking-wide">
             {allChats.map((chat) => (
                 <ChatItem name={chat.name} id={chat.id} key={chat.id}>{chat.name}</ChatItem>
             ))}
@@ -46,10 +47,11 @@ function ChatList({ allChats }) {
 }
 
 function ChatItem({ name, id }) {
-    const match = useMatch(`/chats/${id}`);
-    const liClassName = match
-        ? "border-2 border-c-light-blue opacity-80 rounded-xl text-gray-1wx00 mt-2 font-bold mx-5"
-        : "hover:border-2 hover:border-sage hover:rounded-xl opacity-80 text-zinc-900 mt-2 mx-5";
+    let baseTextClass = "border-2 opacity-80 rounded-xl font-ubuntu font-semibold text-xs lg:text-xl "
+    const currentClass = useMatch(`/chats/${id}`);
+     const liClassName = currentClass
+        ? baseTextClass + "text-red-300 border-red-300"
+        : baseTextClass + "hover:border-sage text-zinc-900 border-c-light-blue"
     return (
         <li className={liClassName}>
             <NavLink to={`/chats/${id}`}>{name}</NavLink>
@@ -57,12 +59,22 @@ function ChatItem({ name, id }) {
     );
 }
 
+
+
+
+
+
+
+
+
+
+
 function CreateChat({ onClick }) {
 
 
     return (
         <button
-            className="bg-blue-400 shadow-md rounded-xl w-3/5 h-10 mb-3 text-white hover:bg-blue-200  "
+            className="bg-blue-400 shadow-md rounded-xl w-3/5 h-10 text-xs text-white hover:bg-blue-200  "
             onClick={onClick}
 
         > Create Chat </button>

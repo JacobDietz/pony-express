@@ -22,7 +22,7 @@ export default function MessagesContainer() {
     }, [messages]);
   
     return (
-        <section className="flex flex-col bg-gray-400/30 border-1 border-blue-400 rounded-xl "> 
+        <section className="flex w-2/3 h-95/100 flex-col bg-gray-400/30 border-1 border-blue-400 rounded-xl "> 
                 {/* Scrollable message area */}
         <div className="flex-1 overflow-y-auto px-4 mt-4 md:px-4 md:mt-4">
           <ul className="space-y-4">
@@ -82,7 +82,7 @@ function Message({ account_id, chatId, created_at, id, text }) {
     });
 
     return (
-        <li className="mr-5 my-7 ml-3 mb-2 border-1 border-opacity-10 rounded-xl 
+        <li className=" border-1 border-opacity-10 rounded-xl 
         hover:border-red-200 shadow-sm">
             <div className="flex flex-col">
                 <div className="flex flex-row">
