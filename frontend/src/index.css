@@ -1,0 +1,41 @@
+
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap"); */
+
+
+@font-face{
+  font-family: Doto;
+  src: url("../src/assets/fonts/BebasNeue-Regular.ttf")
+}
+
+@font-face{
+  font-family: Ubuntu;
+  src: url("../src/assets/fonts/Ubuntu-Regular.ttf")
+}
+
+
+@import "tailwindcss";
+
+@theme {
+    --color-sage: #D4D2A5;
+    --color-c-light-blue: #8FA6CB;
+    --color-c-darker-blue: #4C5B5C;
+    --color-c-bright-tan: #DBF4A7 ;
+    --font-doto: Doto, "sans-serif"; 
+
+  }
+  
+
+  /* @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"); */
+
+
+
+  @layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
