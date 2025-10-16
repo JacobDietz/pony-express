@@ -65,24 +65,14 @@ function Home() {
   else {
     return (
       <div className="h-screen flex flex-col">
-        {/* Header */}
         <h1 className={headerClassName}>Pony Express</h1>
-    
-        <div className="flex flex-1 overflow-hidden">
-          {/* Sidebar */}
-          <div className="w-[280px] flex-shrink-0 p-4">
-            <ChatNav onOpenCreateChat={click} />
-          </div>
-    
-          <div className="flex-1 flex flex-col p-4 overflow-hidden">
-            <MessagesContainer />
-          </div>
+        <div id="body" className="flex flex-1 overflow-hidden">
+          <ChatNav onOpenCreateChat={click} />
+          <MessagesContainer />
         </div>
-    
         {showPopup && <CreateChatPopUp onClose={() => setShowPopup(false)} />}
       </div>
     );
-    
   }
 }
 export default App;

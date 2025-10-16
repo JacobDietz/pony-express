@@ -11,6 +11,7 @@ export default function ChatNav({ onOpenCreateChat }) {
 
 
     return (
+        <div className="w-[280px] flex-shrink-0 p-4">
         <section className="w-full h-full text-center bg-white/30 rounded-xl drop-shadow-2xl border border-zinc-200 p-4 overflow-y-auto">
 
             <h1 className="mt-2 font-shadow-lg text-c-darker-blue mb-2 font-sans font-semibold text-2xl opacity-100 box-shadow-2xl">Pony Express</h1>
@@ -30,6 +31,7 @@ export default function ChatNav({ onOpenCreateChat }) {
 
 
         </section>
+        </div>
     );
 }
 
