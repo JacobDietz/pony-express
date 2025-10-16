@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 
 import ChatNav from "./chats"
-import MessagesContainer from "./pages/messages"
+import MessagesContainer from "./pages/messages.jsx"
 import AuthProvider from "./auth";
 import Login from "./pages/login"
 // import Settings from "./pages/settings";
@@ -16,7 +16,7 @@ import { useContext, useState } from 'react';
 import { CreateChatPopUp } from "./chats";
 
 
-const headerClassName = "text-center text-9xl font-extrabold text-white text-outline my-none mb-none font-doto"
+const headerClassName = "text-xl sm:text-9xl text-center font-extrabold text-white text-outline my-none mb-none font-doto"
 const queryClient = new QueryClient();
 
 /**
@@ -68,20 +68,17 @@ function Home() {
         {/* Header */}
         <h1 className={headerClassName}>Pony Express</h1>
     
-        {/* Main Content Layout */}
         <div className="flex flex-1 overflow-hidden">
           {/* Sidebar */}
           <div className="w-[280px] flex-shrink-0 p-4">
             <ChatNav onOpenCreateChat={click} />
           </div>
     
-          {/* Messages */}
           <div className="flex-1 flex flex-col p-4 overflow-hidden">
             <MessagesContainer />
           </div>
         </div>
     
-        {/* Popup */}
         {showPopup && <CreateChatPopUp onClose={() => setShowPopup(false)} />}
       </div>
     );

@@ -21,7 +21,7 @@ export default function MessagesContainer() {
     }, [messages]);
   
     return (
-        <section className="flex flex-col bg-white/30 border-1 border-blue-400 rounded-xl h-full overflow-hidden"> 
+        <section className="flex flex-col bg-gray-400/30 border-1 border-blue-400 rounded-xl overflow-hidden"> 
         {/* Scrollable message area */}
         <div className="flex-1 overflow-y-auto px-4 mt-4">
           <ul className="space-y-4">
