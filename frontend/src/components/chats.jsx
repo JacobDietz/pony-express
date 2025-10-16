@@ -1,5 +1,5 @@
 import { NavLink, useMatch, useParams } from "react-router";
-import { useAllChats } from "./queries";
+import { useAllChats } from "../queries";
 import { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "./auth";
@@ -33,9 +33,11 @@ export default function ChatNav({ onOpenCreateChat }) {
     );
 }   
 
+
+
 function ChatList({ allChats }) {
     return (
-        <ul id="chatlist" className="flex flex-col gap-y-4 overflow-y-scroll no-scrollbar  font-ubuntu text-white tracking-wide font-semibold text-2xl">
+        <ul id="chatlist" className="flex flex-col gap-y-4 overflow-y-scroll no-scrollbar font-ubuntu text-white tracking-wide font-semibold text-2xl">
             {allChats.map((chat) => (
                 <ChatItem name={chat.name} id={chat.id} key={chat.id}>{chat.name}</ChatItem>
             ))}

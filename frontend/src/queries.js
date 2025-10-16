@@ -9,8 +9,8 @@ import { useMutation } from "@tanstack/react-query";
  * Essentially retrieving from database
  * @returns {Array} of JSON chat objects
  */
+
 export const useAllChats = () => {
-    console.log("GETTING CHATS FOR NAV BAR");
     const { data } = useQuery({
         queryKey: ["chats"],
         queryFn: () => api.get("/chats")
@@ -24,6 +24,7 @@ export const useAllChats = () => {
     });
     return chats
 }
+
 
 /**
  * Retrieves and sorts by created_at date of all JSON message objects associated with their chat
