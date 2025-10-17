@@ -9,7 +9,6 @@ import { useMutation } from "@tanstack/react-query";
  * Essentially retrieving from database
  * @returns {Array} of JSON chat objects
  */
-
 export const useAllChats = () => {
     const { data } = useQuery({
         queryKey: ["chats"],
@@ -25,16 +24,16 @@ export const useAllChats = () => {
     return chats
 }
 
-
 /**
  * Retrieves and sorts by created_at date of all JSON message objects associated with their chat
  * @param {*} id of chat
  * @returns array of JSON message objects or empty array if data not defined
  */
-export const useChatMessages = (id) => {
+export const useChatMessages = (chatId) => {
     const { data, refetch } = useQuery({
-        queryKey: ["messages", id],
-        queryFn: () => api.get("/chats/" + id + "/messages")
+        queryKey: ["messages", chatId],
+        queryFn: () => api.get("/chats/" + chatId + "/messages"),
+        enabled: !!chatId, 
     });
 
     // const { messages } = data || []
@@ -55,15 +54,21 @@ export const useAccountName = (id) => {
     return {account}
 }
 
+/**
+ * Gathers all the accounts that are in a given chat
+ * 
+ * @param {*} chatId identifies 
+ * @returns 
+ */
 export const useAccountsInChat = (chatId) => {
     const { data : accounts} = useQuery({
         queryKey: ["chat", chatId, "messages"],
-        queryFn: () => api.get("/chats/" + chatId + "/accounts")
+        queryFn: () => api.get("/chats/" + chatId + "/accounts"), 
+        enabled: !!chatId, 
     });
 
     const usernames = accounts?.accounts?.map(acc => acc.username) ?? [];
 
-    //return accounts
     return {usernames}
 }
 

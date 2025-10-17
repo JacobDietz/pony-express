@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useParams } from "react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
+import { CreateChatPopUp } from "./components/CreateChat.jsx";
 
 import ChatNav from "./chats"
 import MessagesContainer from "./pages/messages.jsx"
@@ -13,7 +14,7 @@ import { AuthContext } from "./auth";
 import Registration from "./pages/registration";
 import { useContext, useState } from 'react';
 
-import { CreateChatPopUp } from "./chats";
+//import { CreateChatPopUp } from "./chats";
 
 
 const headerClassName = "text-5xl md:text-9xl text-center font-extrabold text-white text-outline my-none mb-none font-doto"
@@ -58,7 +59,6 @@ function Home() {
     console.log("show pop val ", showPopup);
     setShowPopup(!showPopup);
   }
-  console.log("login val ", loggedIn);
   if (!loggedIn) {
     return <Login />;
   }

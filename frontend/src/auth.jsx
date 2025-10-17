@@ -21,8 +21,6 @@ export default function AuthProvider({ children }) {
         const loginHeaders = { Authorization: `Bearer ${token}` };
         const data = await get("/accounts/me", loginHeaders);
         const { email, id } = data;
-        console.log("data    ", data);
-        console.log("id from login    ", id);
 
         setToken(token);  // sets loggedIn to true
         setUsername(name);

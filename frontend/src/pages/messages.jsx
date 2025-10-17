@@ -17,7 +17,9 @@ export default function MessagesContainer() {
     const { username, id } = useContext(AuthContext);
     const { chatId } = useParams();
     const { usernames } = useAccountsInChat(chatId);
-    const { messages, refetch } = useChatMessages(chatId) || [];
+   const { messages, refetch } = useChatMessages(chatId) || [];
+//const { data: messages = [], refetch} = useChatMessages(chatId);
+
     const [editedMessage, setEditedMessage] = useState(null);
     const divRef = useRef(null);
   

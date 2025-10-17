@@ -41,7 +41,6 @@ const handleResponse = async (response) => {
  * @returns value from handlResponse
  */
 export const get = async (url, headers) => {
-  console.log("API GET: ", baseUrl + url);
   const response = await fetch(baseUrl + url, { headers });
   return await handleResponse(response);
 };
@@ -185,6 +184,23 @@ export const sendDeleteMessage = async (headers, chatID, messageID) => {
   return await handleResponse(response);
 };
 
+// @router.post("/", response_model=Chat, status_code=201)
+// def create_chat(session: DBSession, chat_model: CreateChatRequest, account_owner: DBAccount = Depends(extract_user)) -> DBChat:
+// class CreateChatRequest(BaseModel):
+//       name: str
+//       owner_id: int
+
+export const createChat = async (headers, name, accountId) => {
+  const response = await fetch(baseUrl + "/chats", {
+    method: "POST",
+    body: JSON.stringify({"name": name,"owner_id": accountId}),
+    headers: {
+      "Content-Type": "application/json",
+      ...headers,
+    }
+  });
+  return await handleResponse(response); 
+}
 
 export const joinChat = async (headers, chatID, accountID) => {
   console.log("joining chat from api");

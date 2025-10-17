@@ -1,6 +1,6 @@
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { joinChat, sendMessage } from "./api";
+import { joinChat, sendMessage, createChat } from "./api";
 
 
 
@@ -44,16 +44,30 @@ const useSendMessageMutation = (headers, text, chatId, account_id, setMessage, i
             },
             onError: (error) => {
                 if(error.status == 403) {console.log("error sending message 403");}
-                console.log("SENDING MESSAGE FAILURE (From mutation)");
             },
         }));
 }
 
 
-
+const useCreateChatMutation = (headers, name, accountId)=> {
+    const queryClient = useQueryClient();
+    return (
+        useMutation({
+            mutationFn: () =>
+                createChat(headers, name, accountId),
+            onSuccess: () => {
+                queryClient.invalidateQueries({ queryKey: ["chats" ] });
+            },
+            onError: (error) => 
+            {
+                console.log("Currently unable to create chat");
+            },
+        }));
+}
 
 
 export {
     useJoinChatMutation,
-    useSendMessageMutation
+    useSendMessageMutation, 
+    useCreateChatMutation
 }

@@ -51,7 +51,6 @@ export default function MessageInput({ chatId, accountsInChat, refetch }) {
                         onBlur={(e) => {
                             setMessage("Enter a message");
                             //setEditToggled(false);
-                            console.log("blur");
                         }}
                     ></input>
                     <input type="submit" value="Send" className={sendButton} disabled={!memberOfChat || !message} />

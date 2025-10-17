@@ -1,7 +1,12 @@
+import { useCreateChatMutation } from "../mutations";
+import { useContext, useState } from "react";
+import { AuthContext } from "../auth";
 
 function CreateChatPopUp({ onClose }) {
+    const {id, headers } = useContext(AuthContext);
     const [name, setName] = useState('');
     const [showButton, setShowButton] = useState(false);
+    const {mutate: createChatMutation } = useCreateChatMutation(headers, name, id);
 
     return (
 
@@ -18,6 +23,10 @@ function CreateChatPopUp({ onClose }) {
 
                 <form
                     id="createChatForm"
+                    onSubmit={(e) => {
+                        e.preventDefault(); 
+                        createChatMutation();
+                      }}
                 >
                     <div className="flex flex-col items-center justify-center py-10">
                         <p className="text-gray-400 text-7xl text-white font-doto font-bold"> Enter chat name</p>
