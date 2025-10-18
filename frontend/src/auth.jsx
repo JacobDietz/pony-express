@@ -1,7 +1,7 @@
 
 
 import { createContext, useState } from "react";
-import { get } from "./api";
+import { get } from "./api/api";
 
 const AuthContext = createContext();
 const TOKEN_KEY = "pony_express_token";
@@ -33,7 +33,6 @@ export default function AuthProvider({ children }) {
         localStorage.setItem("id", id);
 
     };
-
 
     const logout = () => {
         setUsername("");

@@ -1,6 +1,6 @@
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { joinChat, sendMessage, createChat } from "./api";
+import { joinChat, sendMessage, createChat } from "../../api/api";
 
 
 

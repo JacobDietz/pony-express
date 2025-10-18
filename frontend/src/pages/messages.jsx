@@ -1,9 +1,9 @@
 import { useEffect, useRef, useContext, useState } from "react";
 import { useLocation, useParams } from "react-router"
 
-import { useChatMessages, useAccountName, useAccountsInChat } from "../queries";
+import { useChatMessages, useAccountName, useAccountsInChat } from "../data/queries/queries";
 import { AuthContext } from "../auth";
-import { useJoinChatMutation, useSendMessageMutation } from "../mutations";
+//import { useJoinChatMutation, useSendMessageMutation } from "../mutations";
 import MessageInput from "../components/MessageInput";
 import AccountOwnerMessage from "../components/messageComponents/OwnerMessage";
 

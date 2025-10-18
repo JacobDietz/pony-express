@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../auth";
 import { useState, useRef, useEffect  } from "react";
-import { useJoinChatMutation, useSendMessageMutation } from "../mutations";
+import { useJoinChatMutation, useSendMessageMutation } from "../data/mutations/mutations";
 
 
 export default function MessageInput({ chatId, accountsInChat, refetch }) {

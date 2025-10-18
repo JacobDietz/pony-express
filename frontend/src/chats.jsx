@@ -1,5 +1,5 @@
 import { NavLink, useMatch, useParams } from "react-router";
-import { useAllChats } from "./queries";
+import { useAllChats } from "./data/queries/queries";
 import { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "./auth";

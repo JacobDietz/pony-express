@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 
 
-import { deleteAccount, updateAccount, updatePassword } from "../api";
+import { deleteAccount, updateAccount, updatePassword } from "../api/api";
 import ChatNav from "../chats"
 import { AuthContext } from "../auth";
 import Login from "./login";

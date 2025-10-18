@@ -1,4 +1,4 @@
-import { useCreateChatMutation } from "../mutations";
+import { useCreateChatMutation } from "../data/mutations/mutations";
 import { useContext, useState } from "react";
 import { AuthContext } from "../auth";
 

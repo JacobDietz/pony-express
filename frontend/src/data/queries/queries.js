@@ -1,6 +1,6 @@
-import api from "./api";
+//import api from "./api";
 import { useQuery,  QueryClient } from "@tanstack/react-query";
-import { sendMessage } from "./api";
+import  api from "../../api/api";
 import { useQueryClient } from "@tanstack/react-query";
 import { useMutation } from "@tanstack/react-query";
 

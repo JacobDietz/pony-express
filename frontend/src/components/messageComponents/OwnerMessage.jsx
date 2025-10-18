@@ -1,8 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
 import { AuthContext } from "../../auth";
 import { useContext, useState } from "react";
-import { useAccountName } from "../../queries";
-import { sendEditedMessage, sendMessage, sendDeleteMessage, joinChat } from "../../api";
+import { useAccountName } from "../../data/queries/queries";
+import { sendEditedMessage, 
+    sendMessage, 
+    sendDeleteMessage, 
+    joinChat } from "../../api/api";
 
 export default function AccountOwnerMessage({ account_id, chatId, created_at, id, text, editedMessage, setEditedMessage, refetch }) {
     const { headers } = useContext(AuthContext);

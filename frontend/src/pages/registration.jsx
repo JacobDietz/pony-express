@@ -2,9 +2,9 @@ import { useState, useEffect, useContext } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router";
 
-import { registrationForm } from "../api";
+
 import { AuthContext } from "../auth";
-import { postLoginForm } from "../api";
+import { postLoginForm, registrationForm } from "../api/api";
 
 /**
  * Registration Component
