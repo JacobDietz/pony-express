@@ -1,14 +1,15 @@
 import { NavLink, useMatch, useParams } from "react-router";
-import { useAllChats } from "../queries";
+//import { useAllChats } from "../queries";
+import { useAllChats } from "../../data/queries/queries";
 import { useState } from "react";
 import { useContext } from "react";
-import { AuthContext } from "./auth";
+//import { AuthContext } from "./auth";
+import { AuthContext } from "../../auth";
 
 export default function ChatNav({ onOpenCreateChat }) {
     const { id } = useParams();
     const allChats = useAllChats();
     const { username, logout } = useContext(AuthContext);
-
 
     return (
         <section id="chatComponent" className="text-center bg-white/30 rounded-xl drop-shadow-2xl border border-zinc-200 p-4 overflow-y-auto">
@@ -61,7 +62,9 @@ function CreateChat({ onClick }) {
 
     return (
         <button
-            className="bg-blue-400 shadow-md rounded-xl w-3/5 h-10 mb-3 text-white hover:bg-blue-200  "
+           // className="bg-blue-400 shadow-md rounded-xl w-3/5 h-10 mb-3 text-white hover:bg-blue-200  "
+
+            className="bg-[rgb(18, 18, 18)] shadow-md rounded-xl w-3/5 h-10 mb-3 text-white hover:bg-blue-200  "
             onClick={onClick}
 
         > Create Chat </button>

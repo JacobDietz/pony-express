@@ -3,8 +3,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { CreateChatPopUp } from "./components/CreateChat.jsx";
 
-import ChatNav from "./chats"
-import MessagesContainer from "./pages/messages.jsx"
+//import ChatNav from "./chats" //fix this to be from components
+import ChatNav from "./components/chatComponents/chats.jsx" //fix this to be from components
+//import MessagesContainer from "./pages/messages.jsx"
+import MessagesContainer from "./components/messageComponents/messages.jsx";
 import AuthProvider from "./auth";
 import Login from "./pages/login"
 // import Settings from "./pages/settings";
@@ -30,9 +32,9 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/chats" element={<Home />} />
-            <Route path="/chats/:chatId" element={<Home />} />
+            <Route path="/" element={<HomeOutline />} />
+            <Route path="/chats" element={<HomeOutline />} />
+            <Route path="/chats/:chatId" element={<HomeOutline />} />
 
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Registration />} />
@@ -50,7 +52,7 @@ function NotFound() {
   return <h1 className={headerClassName}>404: Not Found</h1>;
 }
 
-function Home() {
+function HomeOutline() {
   const { loggedIn, logout } = useContext(AuthContext);
   const { params } = useParams();
   const [showPopup, setShowPopup] = useState(false);

@@ -220,4 +220,4 @@ export const joinChat = async (headers, chatID, accountID) => {
 
 
 
-export default { get, postLoginForm, registrationForm, sendMessage }
+export default { get, postLoginForm, registrationForm, sendMessage, joinChat}

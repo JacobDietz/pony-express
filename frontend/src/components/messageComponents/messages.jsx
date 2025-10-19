@@ -1,11 +1,12 @@
 import { useEffect, useRef, useContext, useState } from "react";
-import { useLocation, useParams } from "react-router"
+import { useParams } from "react-router"
 
-import { useChatMessages, useAccountName, useAccountsInChat } from "../data/queries/queries";
-import { AuthContext } from "../auth";
-//import { useJoinChatMutation, useSendMessageMutation } from "../mutations";
-import MessageInput from "../components/MessageInput";
-import AccountOwnerMessage from "../components/messageComponents/OwnerMessage";
+import { useChatMessages, useAccountName, useAccountsInChat } from "../../data/queries/queries";
+import { AuthContext } from "../../auth";
+import MessageInput from "../MessageInput";
+import AccountOwnerMessage from "./OwnerMessage.jsx"
+
+
 
 /**
  * Container for all the messages in a chat
@@ -18,7 +19,6 @@ export default function MessagesContainer() {
     const { chatId } = useParams();
     const { usernames } = useAccountsInChat(chatId);
    const { messages, refetch } = useChatMessages(chatId) || [];
-//const { data: messages = [], refetch} = useChatMessages(chatId);
 
     const [editedMessage, setEditedMessage] = useState(null);
     const divRef = useRef(null);
@@ -60,7 +60,6 @@ export default function MessagesContainer() {
           </ul>
         </div>
       
-        {/* Message input */}
         <div className="p-4 pt-2">
           <MessageInput
             chatId={chatId}
@@ -74,10 +73,9 @@ export default function MessagesContainer() {
     );
   }
   
-function Message({ account_id, chatId, created_at, id, text }) {
+function Message({ account_id, created_at, id, text }) {
     const { account } = useAccountName(account_id);
     const username = account?.username || "removed";
-
 
     const date = new Date(created_at).toLocaleString('default', {
         year: 'numeric',

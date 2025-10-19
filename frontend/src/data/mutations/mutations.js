@@ -1,6 +1,9 @@
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { joinChat, sendMessage, createChat } from "../../api/api";
+//import { joinChat, sendMessage, createChat } from "../../api/api";
+import api from "../../api/api";
+
+import { sendMessage, createChat } from "../../api/api";
 
 
 
@@ -17,7 +20,8 @@ const useJoinChatMutation = (headers, chatId, id, setMemberOfChat) => {
     return (
         useMutation({
             mutationFn: () =>
-                joinChat(headers, chatId, id),
+                //joinChat(headers, chatId, id),
+                api.joinChat(headers, chatId, id),
             onSuccess: () => {
                 console.log("Joined Chat");
                 setMemberOfChat(true);

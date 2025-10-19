@@ -7,9 +7,7 @@ function CreateChatPopUp({ onClose }) {
     const [name, setName] = useState('');
     const [showButton, setShowButton] = useState(false);
     const {mutate: createChatMutation } = useCreateChatMutation(headers, name, id);
-
     return (
-
         <div className="fixed inset-0 bg-[rgba(0,0,0,0.4)] flex justify-center items-center">
             {/* <div className="bg-[rgba(254,254,254,0.98)] w-1/3 h-1/3 border-3 border-red-100 rounded-xl"> */}
             <div className="bg-[url(../src/assets/images/backdrop.jpg)] bg-cover bg-no-repeat bg-center w-1/3 h-1/3 border-none
