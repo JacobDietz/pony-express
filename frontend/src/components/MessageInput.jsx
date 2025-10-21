@@ -4,18 +4,21 @@ import { AuthContext } from "../auth";
 import { useState, useRef, useEffect  } from "react";
 import { useJoinChatMutation, useSendMessageMutation } from "../data/mutations/mutations";
 
+// should put     const [memberOfChat, setMemberOfChat] = useState(accountsInChat.includes(username));
+// as state in messageContainer along with accounts in Chat
 
-export default function MessageInput({ chatId, accountsInChat, refetch }) {
+export default function MessageInput({ chatId, accountsInChat, refetch, memberOfChat}) {
     const { username, id, headers } = useContext(AuthContext);
-    const [memberOfChat, setMemberOfChat] = useState(accountsInChat.includes(username));
+   // const [memberOfChat, setMemberOfChat] = useState(accountsInChat.includes(username));
+    const [isChatMember, setMemberOfChat] = useState(memberOfChat); 
     const [message, setMessage] = useState("");
     const inputRef = useRef(null);
     const { mutate: joinChat } = useJoinChatMutation(headers, chatId, id, setMemberOfChat);
     const {mutate: sendMessage } = useSendMessageMutation(headers, message, chatId, id, setMessage, inputRef)
 
-    useEffect(() => {
-        setMemberOfChat(accountsInChat.includes(username));
-    }, [chatId, accountsInChat])
+    // useEffect(() => {
+    //     setMemberOfChat(accountsInChat.includes(username));
+    // }, [chatId, accountsInChat])
 
     useEffect(() => {
         if (memberOfChat && inputRef.current) {

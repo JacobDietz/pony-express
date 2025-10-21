@@ -1,23 +1,11 @@
 import { BrowserRouter, Routes, Route, useParams } from "react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useEffect } from "react";
-import { CreateChatPopUp } from "./components/CreateChat.jsx";
 
-//import ChatNav from "./chats" //fix this to be from components
-import ChatNav from "./components/chatComponents/chats.jsx" //fix this to be from components
-//import MessagesContainer from "./pages/messages.jsx"
-import MessagesContainer from "./components/messageComponents/messages.jsx";
 import AuthProvider from "./auth";
 import Login from "./pages/login"
-// import Settings from "./pages/settings";
 import Settings from "./pages/settings";
-
-import { AuthContext } from "./auth";
 import Registration from "./pages/registration";
-import { useContext, useState } from 'react';
-
-//import { CreateChatPopUp } from "./chats";
-
+import Home from "./pages/Home.jsx"
 
 const headerClassName = "text-5xl md:text-9xl text-center font-extrabold text-white text-outline my-none mb-none font-doto"
 const queryClient = new QueryClient();
@@ -32,9 +20,10 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<HomeOutline />} />
-            <Route path="/chats" element={<HomeOutline />} />
-            <Route path="/chats/:chatId" element={<HomeOutline />} />
+            <Route path="/" element={<Home/>} />
+            <Route path="/chats" element={<Home/>} />
+            <Route path="/chats/:chatId" element={<Home/>} />
+        
 
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Registration />} />
@@ -52,30 +41,5 @@ function NotFound() {
   return <h1 className={headerClassName}>404: Not Found</h1>;
 }
 
-function HomeOutline() {
-  const { loggedIn, logout } = useContext(AuthContext);
-  const { params } = useParams();
-  const [showPopup, setShowPopup] = useState(false);
-
-  const click = () => {
-    console.log("show pop val ", showPopup);
-    setShowPopup(!showPopup);
-  }
-  if (!loggedIn) {
-    return <Login />;
-  }
-  else {
-    return (
-      <div className="h-screen w-full flex flex-col">
-        <h1 className={headerClassName}>Pony Express</h1>
-        <div id="body" className="px:5 md:px-10 flex flex-1 overflow-hidden justify-evenly">
-          <ChatNav onOpenCreateChat={click} />
-          <MessagesContainer />
-        </div>
-        {showPopup && <CreateChatPopUp onClose={() => setShowPopup(false)} />}
-      </div>
-    );
-  }
-}
 export default App;
 

@@ -1,18 +1,14 @@
 import { NavLink, useMatch, useParams } from "react-router";
-//import { useAllChats } from "../queries";
 import { useAllChats } from "../../data/queries/queries";
-import { useState } from "react";
 import { useContext } from "react";
-//import { AuthContext } from "./auth";
 import { AuthContext } from "../../auth";
 
 export default function ChatNav({ onOpenCreateChat }) {
-    const { id } = useParams();
     const allChats = useAllChats();
     const { username, logout } = useContext(AuthContext);
 
     return (
-        <section id="chatComponent" className="text-center bg-white/30 rounded-xl drop-shadow-2xl border border-zinc-200 p-4 overflow-y-auto">
+        <section id="chatComponent" className="text-center bg-white/30 h-3/4 self-center rounded-xl drop-shadow-2xl border border-zinc-200 p-4 overflow-y-auto">
 
             <h1 className="mt-2 font-shadow-lg text-c-darker-blue mb-2 font-sans font-semibold text-2xl opacity-100 box-shadow-2xl">Pony Express</h1>
 
@@ -27,18 +23,13 @@ export default function ChatNav({ onOpenCreateChat }) {
                     rounded-lg p-1 bg-white/20 box-shadow-xl hover:bg-gray-300 w-3/4 "
                 onClick={logout}
             >log out</button>
-
-
-
         </section>
     );
 }   
 
-
-
 function ChatList({ allChats }) {
     return (
-        <ul id="chatlist" className="flex flex-col gap-y-4 overflow-y-scroll no-scrollbar font-ubuntu text-white tracking-wide font-semibold text-2xl">
+        <ul id="chatlist" className="flex flex-col gap-y-0 overflow-y-scroll h-50/100 no-scrollbar font-ubuntu text-white tracking-wide font-semibold text-2xl">
             {allChats.map((chat) => (
                 <ChatItem name={chat.name} id={chat.id} key={chat.id}>{chat.name}</ChatItem>
             ))}

@@ -7,7 +7,7 @@ import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react
 
 import { deleteAccount, updateAccount, updatePassword } from "../api/api";
 //import ChatNav from "../chats"
-import ChatNav from "../components/chatComponents/chats";
+import ChatNav from "../components/chatComponents/ChatNav";
 import { AuthContext } from "../auth";
 import Login from "./login";
 

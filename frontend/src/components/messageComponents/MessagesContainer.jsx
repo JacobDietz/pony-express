@@ -1,12 +1,14 @@
 import { useEffect, useRef, useContext, useState } from "react";
 import { useParams } from "react-router"
 
-import { useChatMessages, useAccountName, useAccountsInChat } from "../../data/queries/queries";
-import { AuthContext } from "../../auth";
-import MessageInput from "../MessageInput";
+import { useChatMessages, useAccountName, useAccountsInChat } from "../../data/queries/queries.js";
+import { AuthContext } from "../../auth.jsx";
+import MessageInput from "../MessageInput.jsx";
 import AccountOwnerMessage from "./OwnerMessage.jsx"
 
 
+// glass effect 
+//<div class="isolate aspect-video w-96 rounded-xl bg-white/20 shadow-lg ring-1 ring-black/5">
 
 /**
  * Container for all the messages in a chat
@@ -18,20 +20,33 @@ export default function MessagesContainer() {
     const { username, id } = useContext(AuthContext);
     const { chatId } = useParams();
     const { usernames } = useAccountsInChat(chatId);
-   const { messages, refetch } = useChatMessages(chatId) || [];
+    const { messages, refetch } = useChatMessages(chatId) || [];
 
+    const [memberOfChat, setMemberOfChat] = useState(usernames.includes(username));
     const [editedMessage, setEditedMessage] = useState(null);
     const divRef = useRef(null);
-  
+
+
+    let viewableMessagesClass = memberOfChat ? "relative flex-1 bg-white/10 overflow-y-auto px-4 mt-4 md:px-4 md:mt-4 z-40" :
+    "relative flex-1 bg-white/10 blur-sm overflow-hidden px-4 mt-4 md:px-4 md:mt-4 z-40 "
+
+
+    useEffect(() => {
+      setMemberOfChat(usernames.includes(username));
+  }, [chatId, usernames])
+
     useEffect(() => {
       divRef.current.scrollIntoView({ behavior: 'auto' });
     }, [messages]);
-  
+    
     return (
-        <section className="flex w-2/3 h-95/100 flex-col bg-gradient-to-b from-gray-300 to-slate-300 border-1 border-blue-400 rounded-xl "> 
+        // <section className="flex w-2/3 h-95/100 flex-col bg-gradient-to-b from-gray-300 to-slate-300 border-1 border-blue-400 rounded-xl "> 
+        <section className="flex w-2/3 h-95/100 flex-col bg-white/20 shadow-lg ring-1 ring-black/10 border-1 border-blue-400 rounded-xl">
+      {/* <section className="flex w-2/3 h-95/100 flex-col bg-white/20 shadow-lg ring-1 ring-black/10 border-1 border-blue-400 rounded-xl "> 
+       <section className={`${viewableMessagesClass}`}> */}
                 {/* Scrollable message area */}
-        <div className="flex-1 overflow-y-auto px-4 mt-4 md:px-4 md:mt-4">
-          <ul className="space-y-4">
+        <div className={`${viewableMessagesClass}`}>
+          <ul className="space-y-4 z-10">
             {messages.map((msg) =>
               msg.account_id == id ? (
                 <AccountOwnerMessage
@@ -63,7 +78,7 @@ export default function MessagesContainer() {
         <div className="p-4 pt-2">
           <MessageInput
             chatId={chatId}
-            accountsInChat={usernames}
+            memberOfChat={memberOfChat}
             editedMessage={editedMessage}
             setEditedMessage={setEditedMessage}
             refetch={refetch}

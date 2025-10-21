@@ -10,6 +10,8 @@ Issues / Things to fix
             [] Sending requests to join 
             [] Accepting joining chat requests
         [] Fix issues with duplicate Chats.jsx files
+        [] Fix checking for whether user is in chat to be in MessagesContainer rather than MessageInput
+            [] Implement blur filter for above
 
     Frontend 
         [] Fix background of chat-pop up
