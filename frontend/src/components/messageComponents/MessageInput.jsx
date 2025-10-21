@@ -1,8 +1,8 @@
 
 import { useContext } from "react";
-import { AuthContext } from "../auth";
+import { AuthContext } from "../../auth";
 import { useState, useRef, useEffect  } from "react";
-import { useJoinChatMutation, useSendMessageMutation } from "../data/mutations/mutations";
+import { useJoinChatMutation, useSendMessageMutation } from "../../data/mutations/mutations";
 
 // should put     const [memberOfChat, setMemberOfChat] = useState(accountsInChat.includes(username));
 // as state in messageContainer along with accounts in Chat
@@ -62,18 +62,19 @@ export default function MessageInput({ chatId, accountsInChat, refetch, memberOf
         )
     }
     else {
-        return (
-            <div className="flex flex-row mx-5 mt-2 bg-gray-200 rounded-md text-zinc-700">
+        return (<div></div>)}
+    //     return (
+    //         <div id="messgageInput" className="flex flex-row mx-5 mt-2 bg-gray-200 rounded-md text-zinc-700">
             
-              <p
-              className="p-1"
-              >Must be member of chat before you may send messages</p>
-              <button
-              className="bg-zinc-200 ml-auto border-2 rounded-md mr-20 px-3 hover:bg-zinc-200 hover:text-gray-600 hover:border-white shadow-xl"
-            onClick={() => joinChat()}
-              > join chat </button>
-            </div>
-        )
-    }
+    //           <p
+    //           className="p-1"
+    //           >Must be member of chat before you may send messages</p>
+    //           <button
+    //           className="bg-zinc-200 ml-auto border-2 rounded-md mr-20 px-3 hover:bg-zinc-200 hover:text-gray-600 hover:border-white shadow-xl"
+    //         onClick={() => joinChat()}
+    //           > join chat </button>
+    //         </div>
+    //     )
+    // }
 
 }
