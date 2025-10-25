@@ -1,4 +1,4 @@
-import MessageInput from "./MessageInput";
+import MessageInput from "./messageComponents/MessageInput";
 import { AuthContext } from "../auth";
 import { QueryClient, QueryClientProvider  } from "@tanstack/react-query";
 import "../index.css"
@@ -19,7 +19,7 @@ export const Default = () => (
   
     <QueryClientProvider client={queryClient}>
   <AuthContext.Provider value={mockAuth}>
-    <MessageInput chatId={1} accountsInChat={[]} refetch={() => {}} />
+    <MessageInput chatId={1} memberOfChat={true} />
   </AuthContext.Provider>
   </QueryClientProvider>
 );

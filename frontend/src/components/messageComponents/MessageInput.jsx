@@ -7,7 +7,7 @@ import { useJoinChatMutation, useSendMessageMutation } from "../../data/mutation
 // should put     const [memberOfChat, setMemberOfChat] = useState(accountsInChat.includes(username));
 // as state in messageContainer along with accounts in Chat
 
-export default function MessageInput({ chatId, accountsInChat, refetch, memberOfChat}) {
+export default function MessageInput({ chatId, memberOfChat}) {
     const { username, id, headers } = useContext(AuthContext);
    // const [memberOfChat, setMemberOfChat] = useState(accountsInChat.includes(username));
     const [isChatMember, setMemberOfChat] = useState(memberOfChat); 

@@ -28,7 +28,7 @@ export default function MessagesContainer() {
 
 
   let viewableMessagesClass = memberOfChat ? "relative flex-1 bg-gray-400/40 overflow-y-auto px-4 md:px-4 z-40" :
-    "flex-1 bg-white/10 blur-sm overflow-hidden px-4 md:px-4 z-20 "
+    "flex-1 bg-white/10 blur-sm overflow-hidden px-4 md:px-4 z-20  "
 
 
   useEffect(() => {

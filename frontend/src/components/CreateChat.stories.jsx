@@ -1,4 +1,4 @@
-import { CreateChatPopUp } from "./CreateChat";
+import { CreateChatPopUp } from "./CreateChatPopup";
 import { AuthContext } from "../auth";
 import { QueryClient, QueryClientProvider  } from "@tanstack/react-query";
 import "../index.css"
